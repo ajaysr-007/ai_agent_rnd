@@ -26,6 +26,7 @@ def run_agent(user_query: str, model: str = "llama3.2", max_turns: int = 6) -> s
         str: The final text answer from the assistant or a fallback message.
     """
     messages: List[Dict[str, Any]] = [
+        {"role": "system", "content": "You are a helpful AI assistant. Only use tools when strictly necessary to answer the user's question. If the user is just chatting, saying hello, or asking general knowledge, respond directly without using any tools."},
         {"role": "user", "content": user_query}
     ]
     
