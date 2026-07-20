@@ -129,8 +129,7 @@ def run_agent(user_query: str, model: str = "llama3.2", max_turns: int = 6) -> s
                     
             messages.append({
                 "role": "tool",
-                "name": fn_name,
-                "content": tool_result
+                "content": f"Output of {fn_name}: {tool_result}"
             })
             
     logger.warning(f"Reached max_turns ({max_turns}) without completing the task.")
